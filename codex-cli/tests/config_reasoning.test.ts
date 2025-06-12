@@ -108,14 +108,11 @@ describe("Reasoning Effort Configuration", () => {
     // Act
     saveConfig(configToSave, "/mock/config.json", "/mock/instructions.md");
 
-    // Assert
+    // Assert reasoningEffort is saved
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       "/mock/config.json",
-      expect.stringContaining('"model"'),
+      expect.stringContaining('"reasoningEffort": "medium"'),
       "utf-8",
     );
-
-    // Note: Current implementation of saveConfig doesn't save reasoningEffort,
-    // this test would need to be updated if that functionality is added
   });
 });
